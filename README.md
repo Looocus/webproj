@@ -1,2 +1,2 @@
 # webproj
-functions
+Small functions<br>
