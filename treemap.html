@@ -3,22 +3,24 @@
 <head>
 	<meta charset="utf-8">
 	<script type="text/javascript" src="./static/js/echarts.min.js"></script>
+	<script type="text/javascript" src="./static/js/jquery.min.js"></script>
 	<script type="text/javascript" src="./static/js/vue.js"></script>
 	<style>
 	a{
 		text-decoration:none;
 	}
 	li{
-		font-size:20px;
+		font-size:15px;
+		line-height:40px;
 	}
 	span{
-		color:white;
+		font-family:'华文新魏';
+		color:grey;
 	}
 	.siderbar{
 		background-image:url(./static/img/carwall-left.jpg); 
 		background-repeat:no-repeat; 
-		background-size:100% 100%;
-		-moz-background-size:100% 100%;
+		background-size:auto 100%;
 		height:100%; 
 		width:15%; 
 		position:absolute; 
@@ -26,31 +28,188 @@
 		border-style:solid; 
 		border-width: 1px;
 		z-index:999;
+		box-shadow:2px 2px 10px #909090;
+	}
+	.nav {
+		background-color:rgba(0, 0, 0, 0.1);
+		width: 85%;
+		height:5%;
+		float:right;
+	}
+	.row {
+		position: relative;
+		height: 50px;
+		z-index: 1;
+		clear: both;
+		margin-bottom: 30px;
+		text-align: center;
+	}
+	.row--intro {
+		padding-top: 20px;
+		font-size: 16px;
+		line-height: 28px;
+		font-weight: 300;
+		color: #fff;
+		opacity: 0.4;
+	}
+	.row--intro span {
+		font-size: 11px;
+	}
+	.skew-title {
+		font-size: 25px;
+	}
+	.skew-title span {
+		position: relative;
+		display: inline-block;
+		width: 40px;
+		height: 50px;
+		margin: auto;
+		z-index: 2;
+		text-align: center;
+		color: #fff;
+		font-family: 'roboto condensed';
+		font-weight: 700;
+		font-size: 35.714285714285715px;
+		line-height: 50px;
+		-webkit-transform: skewY(-15deg);
+		transform: skewY(-15deg);
+		-webkit-transform-origin: 0 100%;
+		transform-origin: 0 100%;
+		transition: all 0.2s;
+		cursor: default;
+	}
+	.skew-title span:after,
+	.skew-title span:before {
+		display: block;
+		top: 0;
+		left: 0;
+		width: 40px;
+		height: 50px;
+		position: absolute;
+		background: #185a81;
+		content: ' ';
+		z-index: -1;
+		transition: all 0.2s;
+	}
+	.skew-title span:before {
+		background: rgba(0,0,0,0.1);
+		-webkit-transform: skewY(15deg);
+		transform: skewY(15deg);
+		-webkit-transform-origin: 0 0;
+		transform-origin: 0 0;
+	}
+	.skew-title span:nth-child(even) {
+		background-color: #144c6e;
+		-webkit-transform: skewY(15deg);
+		transform: skewY(15deg);
+		-webkit-transform-origin: 100% 100%;
+		transform-origin: 100% 100%;
+		color: #d9d9d9;
+	}
+	.skew-title span:nth-child(even):after {
+		background-color: #144c6e;
+	}
+	.skew-title span:nth-child(even):before {
+		-webkit-transform-origin: 100% 0;
+		transform-origin: 100% 0;
+		-webkit-transform: skewY(-15deg);
+		transform: skewY(-15deg);
+	}
+	.skew-title span.flat {
+		-webkit-transform: skewY(0);
+		transform: skewY(0);
+		color: #fff;
+	}
+	.skew-title span.flat:before {
+		-webkit-transform: skewY(0);
+		transform: skewY(0);
+	}
+	.skew-title span.flat:nth-child(even):after {
+		background-color: #185a81;
+	}
+	.skew-title span.alt:after {
+		background-color: #b94a2c;
+	}
+	.skew-title span.alt:nth-child(even):after {
+		background-color: #9d3f25;
+	}
+	.skew-title span.alt.flat:nth-child(even):after {
+		background-color: #b94a2c;
 	}
 	</style>
 </head>
 <body style="height: 100%; margin: 0">
 	<div class="siderbar">
-		<div class="siderbar-middle" style="margin:0 auto; top:5%; position:absolute;">
-			<li id="first" @click="checkTabOpt">
+		<img src="">
+		<div id="changesale"class="siderbar-middle" style="margin:0 auto; top:5%; position:absolute;">
+			<li @click="changeopt69">
 				<a href="#">
 					<input type="radio" style="display:none;"></input>
-					<label><span>基础信息</span></label>
+					<label><span>6w-9w</span></label>
 				</a>
 			</li>
-			<li id="second" @click="checkTabOpt">
+			<li @click="changeopt913">
 				<a href="#">
 					<input type="radio" style="display:none;"></input>
-					<label><span>基础信息</span></label>
+					<label><span>9w-13w</span></label>
+				</a>
+			</li>
+			<li @click="changeopt1317">
+				<a href="#">
+					<input type="radio" style="display:none;"></input>
+					<label><span>13w-17w</span></label>
+				</a>
+			</li>
+			<li @click="changeopt1728">
+				<a href="#">
+					<input type="radio" style="display:none;"></input>
+					<label><span>17w-28w</span></label>
+				</a>
+			</li>
+			<li @click="changeopt2842">
+				<a href="#">
+					<input type="radio" style="display:none;"></input>
+					<label><span>28w-42w</span></label>
 				</a>
 			</li>
 		</div>
 	</div>
-	<div id="nav" style="height:5%; width:85%; position:absolute; right:0; top:0; background:rgba(70, 70, 70, 0.85); border-style:solid; border-width: 1px;"></div>
+	<div class="nav">
+		<h1 class="row skew-title">  
+			<span>汽</span><span>车</span><span>销</span><span>量</span><span class="alt">排</span><span class="alt last">行</span>
+		</h1>
+	</div>
     <div id="container" style="height:95%; width:85%; position:absolute; right:0; bottom:0; background:rgba(0, 0, 0, 0.1)"></div>
-	<script type="text/javascript">
+	<!--echarts引用-->
+	<script>
 	var echart = document.getElementById("container");
 	var myChart = echarts.init(echart);
+	//销量数据
+	var data69 = [{name: '大众捷达',value: 31065}, {name: '大众新桑塔纳',value: 28508}, {name: '雪佛兰科沃兹',value: 28297}, 
+				{name: '吉利新帝豪',value: 21472}, {name: '宝骏510',value: 20911}, {name: '长安CS35',value: 19600},
+				{name: '吉利缤越',value: 14627}, {name: '本田飞度',value: 14232}, {name: '宝骏730',value: 14091}, 
+				{name: '吉利帝豪GL',value: 13747}, 
+				];
+	var data913 = [{name: '大众朗逸',value: 58537}, {name: '哈弗H6',value: 45034}, {name: '日产轩逸',value: 44454}, 
+				{name: '丰田卡罗拉',value: 37711}, {name: '别克英朗',value: 34622}, {name: '大众捷达',value: 31065}, 
+				{name: '大众新桑塔纳',value: 28508}, {name: '雪佛兰科沃兹',value: 28297}, {name: '吉利博越',value: 27503}, 
+				{name: '大众宝来',value: 24765},
+				];
+	var data1317 = [{name: '大众朗逸',value: 58537}, {name: '哈弗H6',value: 45034}, {name: '日产轩逸',value: 44454}, 
+				{name: '丰田卡罗拉',value: 37711}, {name: '别克英朗',value: 34622}, {name: '吉利博越',value: 27503}, 
+				{name: '大众宝来',value: 24765}, {name: '本田思域',value: 24374}, {name: '荣威Ei5',value: 22261}, 
+				{name: '本田雅阁',value: 21336},
+				];
+	var data1728 = [{name: '荣威Ei5',value: 22261}, {name: '本田雅阁',value: 21336}, {name: '丰田荣放',value: 17859}, 
+				{name: '日产逍客',value: 16626}, {name: '大众速腾',value: 16587}, {name: '大众帕萨特',value: 15622}, 
+				{name: '丰田凯美瑞',value: 15615}, {name: '本田CR-V',value: 15511}, {name: '别克威朗',value: 14081}, 
+				{name: '雪佛兰迈锐宝',value: 13931},
+				];
+	var data2842 = [{name: '宝马3系',value: 17379}, {name: '奥迪A4L',value: 16318}, {name: '大众帕萨特',value: 15622},
+				{name: '奔驰C级',value: 15013}, {name: '奔驰GLC级',value: 13104}, {name: '别克昂科威',value: 12640}, 
+				{name: '大众迈腾',value: 12398}, {name: '大众途观L',value: 10841}, {name: '沃尔沃XC60',value: 10647}, 
+				{name: '丰田汉兰达',value: 10481}, 
+				];
 	option = null;
 	option = {
 		tooltip : {
@@ -85,60 +244,61 @@
 						}
 					}
 				},
-				data:[
-					{
-						name: '三星',
-						value: 6
-					},
-					{
-						name: '小米',
-						value: 4
-					},
-					{
-						name: '苹果',
-						value: 4
-					},
-					{
-						name: '华为',
-						value: 2
-					},
-					{
-						name: '联想',
-						value: 2
-					},
-					{
-						name: 'AAA',
-						value: 2
-					},
-					{
-						name: '魅族',
-						value: 1
-					},
-					{
-						name: '中兴',
-						value: 1
-					}
-				]
+				data: data69,
 			}
 		]
 	};
                     
 	if (option && typeof option === "object") {
 		myChart.setOption(option, true);
-	}
-    </script>
-	<script>
+	};
+	<!--vue切换-->
 	new Vue({
-		el: '#first',
+		el: '#changesale',
 		data: {
 			message: document.getElementsByTagName('span')[0].innerHTML
 		},
 		methods: {
-			checkTabOpt: function () {
-				//console.log(this.message)
-			}
+			changeopt69: function () {
+				option.series[0].data = data69,
+				myChart.setOption(option, true)
+			},
+			changeopt913: function () {
+				option.series[0].data = data913,
+				myChart.setOption(option, true)
+			},
+			changeopt1317: function () {
+				option.series[0].data = data1317,
+				myChart.setOption(option, true)
+			},
+			changeopt1728: function () {
+				option.series[0].data = data1728,
+				myChart.setOption(option, true)
+			},
+			changeopt2842: function () {
+				option.series[0].data = data2842,
+				myChart.setOption(option, true)
+			},
 		}
-	})
-	</script>
+	});
+	(function() {
+		$('.skew-title').children('span').hover((function() {
+		var $el, n;
+		$el = $(this);
+		n = $el.index() + 1;
+		$el.addClass('flat');
+		if (n % 2 === 0) {
+		  return $el.prev().addClass('flat');
+		} 
+		else {
+		  if (!$el.hasClass('last')) {
+			return $el.next().addClass('flat');
+		  }
+		}
+		}), function() {
+		return $('.flat').removeClass('flat');
+		});
+	}).call(this);
+    </script>
 </body>
 </html>
