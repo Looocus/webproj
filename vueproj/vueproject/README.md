@@ -1,8 +1,8 @@
-# v-project
+# Vue---ToDoList
 
 > A Vue.js project
 
-## Build Setup
+## 组建dist
 
 ``` bash
 # install dependencies
