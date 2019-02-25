@@ -2,7 +2,7 @@
 
 > A Vue.js project
 
-## 组建dist
+## Setup dist
 
 ``` bash
 # install dependencies
