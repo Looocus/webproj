@@ -13,8 +13,13 @@ module.exports = {
     proxyTable: {},
 
     // Various Dev Server settings
+<<<<<<< HEAD
     host: 'localhost', // can be overwritten by process.env.HOST
     port: 8080, // can be overwritten by process.env.PORT, if port is in use, a free one will be determined
+=======
+    host: '0.0.0.0', // can be overwritten by process.env.HOST
+    port: 5001, // can be overwritten by process.env.PORT, if port is in use, a free one will be determined
+>>>>>>> 2d265fa773642bd570f5996c4be24b7dd94e6977
     autoOpenBrowser: false,
     errorOverlay: true,
     notifyOnErrors: true,
@@ -50,7 +55,7 @@ module.exports = {
     // Paths
     assetsRoot: path.resolve(__dirname, '../dist'),
     assetsSubDirectory: 'static',
-    assetsPublicPath: '/',
+    assetsPublicPath: './',
 
     /**
      * Source Maps
