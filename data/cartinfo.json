@@ -1,0 +1,18 @@
+{
+	"result":{
+		"list":[
+			{
+				"productName":"DW手表",
+				"productPrice":1999,
+				"productImage":"./static/img/goods-1.jpg",
+				"productQuentity":1
+			},
+			{
+				"productName":"捷安特自行车",
+				"productPrice":2999,
+				"productImage":"./static/img/goods-2.jpg",
+				"productQuentity":1
+			}
+		]
+	}
+}
