@@ -1,24 +1,39 @@
 <!DOCTYPE>
 <html>
 <head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="stylesheet" href="./static/bootstrap/bootstrap.min.css">
-<script type="text/javascript" src="./static/js/jquery.min.js"></script>
-<script type="text/javascript" src="./static/bootstrap/bootstrap.min.js"></script>
+<style type="text/css">
+	.column {
+		position: relative;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+		height: 646px;
+		width: 339px;
+	}
+	#border {
+		border: 5px solid #aaa;
+		border-radius: 5px;
+	}
+</style>
 </head>
-<body style="width:100%; height:100%">
-<div class="column" style="margin:0 auto;height:603px;width:339px">
-	<div id="mycarousel" class="carousel slide" data-ride="carousel" data-interval="2000" style="height:603px;width:339px">
+<body >
+<div class="column">
+	<div id="mycarousel" class="carousel slide" data-ride="carousel" data-interval="2000">
 		<ol class="carousel-indicators">
 			<li data-target="#mycarousel" data-slide-to="0" class="active"></li>
 			<li data-target="#mycarousel" data-slide-to="1"></li>
 			<li data-target="#mycarousel" data-slide-to="2"></li>
 		</ol>
-		<div  id="border" class="carousel-inner" style="height:603px;width:339px">
-			<div class="item active"><img class="img-responsive" height="603" width="339" src="./static/img/carousel-1.jpg" alt=""></div>
-			<div class="item"><img class="img-responsive" height="603" width="339" src="./static/img/carousel-2.jpg" alt=""></div>
-			<div class="item"><img class="img-responsive" height="603" width="339" src="./static/img/carousel-3.jpg" alt=""></div>
+		<div  id="border" class="carousel-inner">
+			<div class="item active"><img class="img-responsive" src="./static/img/carousel-1.jpg" alt=""></div>
+			<div class="item"><img class="img-responsive" src="./static/img/carousel-2.jpg" alt=""></div>
+			<div class="item"><img class="img-responsive" src="./static/img/carousel-3.jpg" alt=""></div>
 		</div>
 	</div>
 </div>
+<script type="text/javascript" src="./static/js/jquery.min.js"></script>
+<script type="text/javascript" src="./static/bootstrap/bootstrap.min.js"></script>
 </body>
 </html>
