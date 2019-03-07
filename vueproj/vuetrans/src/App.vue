@@ -34,8 +34,8 @@ export default {
       this.translating = text;
       this.language = lang;
       //API数据; appid/key申请百度翻译APi
-      var appid = '百度翻译appid';
-      var key = '百度翻译key';
+      var appid = '20190227000271716'; //百度翻译appid
+      var key = 'NW5B16jGIrSbfKscHq1Y'; //百度翻译key
       var salt = (new Date).getTime();
       var query = this.translating;
       var from = 'zh';
