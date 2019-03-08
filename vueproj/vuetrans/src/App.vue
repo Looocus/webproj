@@ -19,7 +19,7 @@ export default {
     Forms,
     Result
   },
-  data () { 
+  data () {
     return {
       translating: '',
       language: '',
@@ -28,21 +28,22 @@ export default {
   },
   methods: {
     getText (text, lang) {
+      console.log(process.env.MySQL_u);
       if(!text){
         return {}
-      }
+      };
       this.translating = text;
       this.language = lang;
       //API数据; appid/key申请百度翻译APi
-      var appid = '百度翻译appid';
-      var key = '百度翻译key';
+      var appid = '20190227000271716'; //百度翻译appid
+      var key = 'NW5B16jGIrSbfKscHq1Y'; //百度翻译key
       var salt = (new Date).getTime();
       var query = this.translating;
       var from = 'zh';
       var to = this.language;
       var string = appid + query + salt + key;
       var sign = MD5(string);
-      this.$http.jsonp("http://api.fanyi.baidu.com/api/trans/vip/translate?q=" + query + "&from=" + from + "&to=" + to + "&appid=" + appid + "&salt=" + salt + "&sign=" + sign, {}, 
+      this.$http.jsonp("http://api.fanyi.baidu.com/api/trans/vip/translate?q=" + query + "&from=" + from + "&to=" + to + "&appid=" + appid + "&salt=" + salt + "&sign=" + sign, {},
         {headers: {}, emulateJSON: true})
         .then(function(response) {
           this.translated = response.body.trans_result[0].dst;

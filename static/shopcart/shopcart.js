@@ -54,7 +54,7 @@ var vm = new Vue({
 				}
 			});
 			var getDom = document.getElementsByClassName("check");
-			if(flag ==1 ){
+			if(flag == true ){
 				for(var i=0;i<getDom.length;i++){
 		            getDom[i].setAttribute("value",this.checkmsg); 
 		            this.calTotalMoney ();

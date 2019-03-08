@@ -103,8 +103,8 @@
 				</div>
 			</div>
 			<div class="one column row allcheck">
-				<input type="button" value="全选" @click="allchecks(1)">
-				<input type="button" value="取消全选" @click="allchecks(-1)">
+				<input type="button" value="全选" @click="allchecks(true)">
+				<input type="button" value="取消全选" @click="allchecks(false)">
 				<em class="totalmoney" type="text" v-text="totalmoney"></em>
 			</div>
 		</div>
