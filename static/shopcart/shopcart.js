@@ -10,10 +10,16 @@ var vm = new Vue({
 	},
 	methods: {
 		cartView () {
-			this.$http.get("data/cartinfo.json").then(res => {
+			this.$http.get("data/cartinfo.json")
+			// .then(res => {
+			// 	this.shoplist = res.body.result.list;
+			// 	this.calTotalMoney ();
+			// 	//console.log(this.shoplist);
+			// })
+			.catch(res => {
+				//console.log(err);
 				this.shoplist = res.body.result.list;
 				this.calTotalMoney ();
-				//console.log(this.shoplist);
 			})
 		},
 		moneychanger (item, flag) {
