@@ -2,28 +2,15 @@
 
 ## Project setup
 ```
+Vue-cli3 大坑较多，谨慎入坑
 npm install
-```
-
-### Compiles and hot-reloads for development
-```
 npm run serve
 ```
 
 ### Compiles and minifies for production
 ```
+将vue.config.js注释全部去掉
+将src下的router.js中的mode='history'行进行注释
+将src中views下Signup.vue中的this.$http.get('/static/userData.json')改为'./static/userData.json'这样的相对引用
 npm run build
 ```
-
-### Run your tests
-```
-npm run test
-```
-
-### Lints and fixes files
-```
-npm run lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
